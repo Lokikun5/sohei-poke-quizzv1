@@ -1,0 +1,248 @@
+/* ======= RESET CSS ======= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+ 
+  width: 100%;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 3px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* ======= FONTS ======= */
+@font-face {
+  font-family: 'Pokemon Hollow';
+  src: url('./assets/fonts/PokemonHollowNormal.woff2') format('woff2'),
+       url('./assets/fonts/PokemonHollow.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pokemon Solid';
+  src: url('./assets/fonts/PokemonSolidNormal.woff2') format('woff2'),
+       url('./assets/fonts/PokemonSolid.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ======= GLOBAL STYLES ======= */
+body {
+  font-family: 'Pokemon Solid', sans-serif;
+  background-color: #1E3A5F;
+  color: #f4f4f4;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+h1, h3 {
+  font-family: 'Pokemon Solid', sans-serif;
+  color: #FFA726;
+}
+h1{
+  margin-bottom: 2rem;
+}
+
+h2 {
+  color: #f9f9f9;
+  font-family: 'Pokemon Solid', sans-serif;
+}
+h3{
+  font-size: 2.4rem;
+}
+/* ======= LOGO ======= */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* ======= CARDS & CONTENT ======= */
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.result {
+  text-align: center;
+  margin-top: 20px;
+  padding: 2rem;
+}
+
+.pokemon-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.pokemon-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pokemon-card img {
+  width: 120px;
+  height: auto;
+}
+
+.pokemon-card p {
+  font-weight: bold;
+  margin-top: 5px;
+  color: black;
+  font-family: 'Pokemon Solid', sans-serif;
+}
+
+/* ====== IMAGE CERCLE NOIR AVEC ====== */
+.mystery-image {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.mystery-image img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ====== BOUTON RÉPONSE ====== */
+.answer-button {
+  background-color: #FFA726;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.answer-button:hover {
+  background-color: #ff9800;
+}
+
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.nav-button {
+  background-color: #FFA726;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.nav-button:hover {
+  background-color: #ff9800;
+}
+
+/* ====== page du Présentateur ====== */
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filter-group label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #FFA726;
+  margin-bottom: 5px;
+}
+
+.filter-select {
+  background-color: #fff;
+  border: 2px solid #FFA726;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+}
+
+.filter-select:hover {
+  background-color: #ff9800;
+  color: white;
+}
+
+.filter-select:focus {
+  border-color: #ff9800;
+  box-shadow: 0px 0px 10px rgba(255, 152, 0, 0.5);
+}
