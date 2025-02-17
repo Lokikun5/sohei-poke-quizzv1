@@ -2,12 +2,16 @@
   "name": "sohei-poke-quizzv1",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://Lokikun5.github.io/sohei-poke-quizzv1",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+
   },
   "dependencies": {
     "react": "^19.0.0",
@@ -24,6 +28,7 @@
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.18",
+    "gh-pages": "^6.3.0",
     "globals": "^15.14.0",
     "vite": "^6.1.0"
   }
