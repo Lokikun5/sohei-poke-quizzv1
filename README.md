@@ -83,8 +83,8 @@ Merci aux créateurs de cette API pour leur travail incroyable !
 
 ## 💡 Améliorations futures
 
-- ✅ Ajout d'un **système de score** et classement.
-- ✅ Mode **multi-joueurs** pour jouer avec des amis.
+- ✅ Ajout d'un **système de score**.
+
 - ✅ Effets sonores et animations pour une meilleure immersion.
 
 ---
