@@ -49,6 +49,7 @@ Le projet sera accessible à l'adresse **http://localhost:5173/**.
 - Les Pokémon **ne sont pas affichés au départ** (seulement le nombre total).
 - Vous pouvez **cliquer sur un Pokémon** ou appuyer sur **`Y`** pour valider une bonne réponse.
 - Une fois **toutes les bonnes réponses trouvées**, la liste des Pokémon s'affiche automatiquement.
+- rafraîchir la page (f5) pour charger un nouveau résulta.
 
 ---
 
