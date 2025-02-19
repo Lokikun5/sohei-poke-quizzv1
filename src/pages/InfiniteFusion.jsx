@@ -3,6 +3,7 @@ import { getPokemonData } from "../fusionApi";
 import imagesData from "../data/images.json";
 import ADN from "/Miniature_Pointeau_ADN_EV.png";
 import soheiLogo from "/Image1.png";
+import icons from "../data/icons";
 import "../App.scss";
 
 function InfiniteFusion() {
@@ -64,7 +65,7 @@ function InfiniteFusion() {
           {pokemon1.types.map((type, index) => (
             <span key={`pokemon1-type-${index}`} style={{ marginRight: 8, display: "inline-flex", alignItems: "center", fontSize:30 }}>
               <span className={`icon ${type.toLowerCase()}`} style={{ display: "inline-block" }}>
-                <img src={`/icons/${type.toLowerCase()}.svg`} alt={type} />
+                <img src={icons[type.toLowerCase()]} alt={type} />
               </span>
               {type}
             </span>
@@ -73,7 +74,7 @@ function InfiniteFusion() {
           {pokemon2.types.map((type, index) => (
             <span key={`pokemon2-type-${index}`} style={{ marginLeft: 8, display: "inline-flex", alignItems: "center", fontSize:30  }}>
               <span className={`icon ${type.toLowerCase()}`} style={{ display: "inline-block" }}>
-                <img src={`/icons/${type.toLowerCase()}.svg`} alt={type} />
+                <img src={icons[type.toLowerCase()]} alt={type} />
               </span>
               {type}
             </span>
