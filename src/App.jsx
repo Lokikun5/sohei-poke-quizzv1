@@ -3,6 +3,7 @@ import { getRandomGeneration, getRandomType, getFilteredPokemon } from "./api";
 import Header from "./components/Header";
 import "./App.scss";
 import pikaquizz from "../public/pikaquizz.jpg";
+import icons from "./data/icons";
 
 function App() {
   const [generation, setGeneration] = useState(null);
@@ -60,21 +61,22 @@ function App() {
     <>
       <Header />
       <h2>
-  {generation && pokemonType ? (
-    <>
-      Nous cherchons des Pokémon de type "
-      <div className={`icon ${pokemonType.toLowerCase()}`} style={{ display: "inline-block", marginRight: 5 }}>
-        <img
-          src={`/icons/${pokemonType.toLowerCase()}.svg`}
-          alt={pokemonType}
-        />
-      </div>
-      {pokemonType}" de la {generation.name}
-    </>
-  ) : (
-    "Chargement des données..."
-  )}
-</h2>
+        {generation && pokemonType ? (
+          <>
+            Nous cherchons des Pokémon de type "
+            <span className={`icon ${pokemonType.toLowerCase()}`} style={{ display: "inline-flex", alignItems: "center", marginRight: 5 }}>
+              <img
+                src={icons[pokemonType.toLowerCase()]}
+                alt={pokemonType}
+                style={{ width: 24, height: 24 }}
+              />
+            </span>
+            {pokemonType}" de la {generation.name}
+          </>
+        ) : (
+          "Chargement des données..."
+        )}
+      </h2>
 
 
 
