@@ -53,9 +53,13 @@ function InfiniteFusion() {
       {/* Affichage de la fusion */}
       {fusion && (
         <div className="fusion-card">
-          <img src={fusion.path} alt={`Fusion de ${fusion.firstId} et ${fusion.secondId}`} />
+            <img 
+            src={`${import.meta.env.BASE_URL}${fusion.path.replace(/^\/+/, "")}`} 
+            alt={`Fusion de ${fusion.firstId} et ${fusion.secondId}`} 
+            />
         </div>
-      )}
+        )}
+
 
       {/* Affichage des types des Pokémon d'origine */}
       {pokemon1 && pokemon2 && (
