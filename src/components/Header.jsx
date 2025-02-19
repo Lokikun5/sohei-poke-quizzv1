@@ -10,6 +10,7 @@ function Header() {
       <h1>Master Quizz Pokemon</h1>
       <nav className="nav-links">
         <Link to="/presentateur" className="nav-button">Présentation</Link>
+        <Link to="/infinite-fusion" className="nav-button">Infinite Fusion</Link>
       </nav>
     </header>
   );

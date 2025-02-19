@@ -60,10 +60,23 @@ function App() {
     <>
       <Header />
       <h2>
-        {generation && pokemonType
-          ? `Nous cherchons des Pokémon de type "${pokemonType}" de la ${generation.name}`
-          : "Chargement des données..."}
-      </h2>
+  {generation && pokemonType ? (
+    <>
+      Nous cherchons des Pokémon de type "
+      <div className={`icon ${pokemonType.toLowerCase()}`} style={{ display: "inline-block", marginRight: 5 }}>
+        <img
+          src={`/icons/${pokemonType.toLowerCase()}.svg`}
+          alt={pokemonType}
+        />
+      </div>
+      {pokemonType}" de la {generation.name}
+    </>
+  ) : (
+    "Chargement des données..."
+  )}
+</h2>
+
+
 
       <section className="result">
         <h3>{filteredPokemon.length} Pokémon à trouver :</h3>
