@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate, Link  } from "react-router-dom";
+import { useParams, useNavigate  } from "react-router-dom";
 import moves from "../data/moves.json";
 import soheiLogo from "/Image1.png";
 import NavMenu from "../components/NavMenu";
@@ -58,10 +58,10 @@ function FindTheMove() {
       {/* Image de l'attaque */}
       <div className="move-card">
         <img 
-          src={move.path} 
-          alt={`Indice pour ${move.name}`} 
-          onClick={() => setShowAnswer(true)}
-          className="move-image"
+        src={`${import.meta.env.BASE_URL}${move.path.replace(/^\/+/, "")}`} 
+        alt={`Indice pour ${move.name}`} 
+        onClick={() => setShowAnswer(true)}
+        className="move-image"
         />
       </div>
 
