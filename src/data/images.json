@@ -401,7 +401,7 @@
   {
     "id": 58,
     "firstId": 350,
-    "secondId": 377,
+    "secondId": 635,
     "name": "335.377.png",
     "path": "/pokefusion/335.377.png"
   },
@@ -667,7 +667,7 @@
   {
     "id": 96,
     "firstId": 95,
-    "secondId": 377,
+    "secondId": 635,
     "name": "95.447.png",
     "path": "/pokefusion/95.447.png"
   },
@@ -758,7 +758,7 @@
   {
     "id": 109,
     "firstId": 98,
-    "secondId": 658,
+    "secondId": 487,
     "name": "98.345.png",
     "path": "/pokefusion/98.345.png"
   },
@@ -782,5 +782,12 @@
     "secondId": 65,
     "name": "99.65.png",
     "path": "/pokefusion/99.65.png"
+  },
+  {
+    "id": 113,
+    "firstId": 287,
+    "secondId": 120,
+    "name": "99.65.png",
+    "path": "/pokefusion/287.120a.png"
   }
 ]
