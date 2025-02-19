@@ -1,0 +1,7 @@
+"F" pour basculer ou quitter le plein écran
+"Y" ajouter une bonne réponse
+"S" afficher la bonne réponse
+"R" lancer une nouvelle question
+"I" afficher l'indice
+"N" passer à la page suivant
+"P" revenir sur la page précédente  

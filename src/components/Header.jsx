@@ -1,17 +1,15 @@
 import soheiLogo from "/Image1.png";
-import { Link } from "react-router-dom";
 
+import NavMenu from "../components/NavMenu";
 function Header() {
   return (
     <header>
       <div>
         <img src={soheiLogo} className="logo" alt="Vite logo" />
+        <NavMenu />
       </div>
       <h1>Master Quizz Pokemon</h1>
-      <nav className="nav-links">
-        <Link to="/presentateur" className="nav-button">Présentation</Link>
-        <Link to="/infinite-fusion" className="nav-button">Infinite Fusion</Link>
-      </nav>
+      
     </header>
   );
 }

@@ -166,7 +166,6 @@ h3{
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 10px;
 }
 
 .answer-button:hover {
@@ -199,6 +198,19 @@ h3{
 .nav-button:hover {
   background-color: #ff9800;
 }
+
+.btn-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1000px) { 
+
+  .answer-button{
+    width: 50%;
+  }
+ }
 
 /* ====== page du Présentateur ====== */
 
@@ -387,3 +399,189 @@ h3{
   background: #539DDF;
   box-shadow: 0 0 20px #539DDF;
 }
+
+.move-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.logo-container {
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 520px;
+  height: auto;
+}
+
+h1 {
+  margin-bottom: 10px;
+  font-size: 4.2em;
+  line-height: 1.1;
+}
+@media (max-width: 1250px) {
+  h1{
+    font-size: 3rem;
+  }
+  .logo{
+    width: 300px;
+    margin-top: 100px;
+  }
+ }
+
+
+.move-instructions {
+  margin-bottom: 20px;
+}
+
+.move-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+}
+
+.move-image {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.move-answer {
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Ajoute de l'espace entre les boutons */
+  margin-top: 20px;
+}
+
+.nav-button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.nav-button:hover {
+  background: #0056b3;
+}
+
+.nav-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.flex-col{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+
+.nav-menu {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+}
+
+.nav-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.nav-button:hover {
+  background: #0056b3;
+}
+
+.nav-popup {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  min-width: 180px;
+  z-index: 10;
+}
+
+.nav-item {
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+
+.nav-item:hover {
+  background: #f0f0f0;
+}
+.fullscreen-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.fullscreen-button:hover {
+  background: #0056b3;
+}
+
+.reload-button {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin: 10px;
+}
+
+.reload-button:hover {
+  background: #218838;
+}
+
+@media (max-width: 1000px) { 
+  .reload-button{
+    width: 50%;
+  }
+ }

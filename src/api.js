@@ -29,18 +29,32 @@ export async function getRandomGeneration() {
     const data = await response.json();
     const frenchName = data.names.find(name => name.language.name === "fr")?.name || `Génération ${generationId}`;
 
-    const generationData = { id: generationId, name: frenchName, pokemon_species: data.pokemon_species };
+    if (!data.main_region || !data.main_region.name) {
+      console.error("❌ Erreur: La région est manquante dans la réponse de l'API !");
+      return null;
+    }
+
+    const regionName = data.version_groups[0].name;
+    console.log(`📊 Région trouvée: ${regionName}`);
+
+    const generationData = {
+      id: generationId,
+      name: frenchName,
+      region: regionName,
+      pokemon_species: data.pokemon_species
+    };
 
     // Stocke les données en cache
     localStorage.setItem(`generation-${generationId}`, JSON.stringify(generationData));
 
-    console.log(`📊 Génération récupérée et stockée en cache: ${frenchName} (${generationId})`);
+    console.log(`📊 Génération récupérée: ${frenchName} (${generationId}) - Région: ${regionName}`);
     return generationData;
   } catch (error) {
     console.error("❌ Erreur lors de la récupération de la génération :", error);
     return null;
   }
 }
+
 
 /**
  * Récupère un type Pokémon aléatoire parmi les 18 premiers types.

@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "Téléport",
+        "answer": "Téléport",
+        "path": "/moves/1-Téléport.webp"
+    },
+    {
+        "id": 2,
+        "name": "Téléport",
+        "answer": "Séisme",
+        "path": "/moves/2-Earthquake.webp"
+    },
+    {
+        "id": 3,
+        "name": "Explosion",
+        "answer": "Explosion",
+        "path": "/moves/3-Explosion.webp"
+    },
+    {
+        "id": 4,
+        "name": "Calm Mind",
+        "answer": "Plénitude",
+        "path": "/moves/4-CalmMind.webp"
+    },
+    {
+        "id": 5,
+        "name": "Thief",
+        "answer": "Larcin",
+        "path": "/moves/5-Thief.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Trick",
+        "answer": "Tour de Magie",
+        "path": "/moves/6-Trick.png"
+    },
+    {
+        "id": 7,
+        "name": "U-turn",
+        "answer": "Demi-Tour",
+        "path": "/moves/7-U-turn.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Vine-Whip",
+        "answer": "Fouet Lianes / Mégafouet / Végé-Attaque",
+        "path": "/moves/8-Vine-Whip.png"
+    },
+    {
+        "id": 9,
+        "name": "Revival-Blessing",
+        "answer": "Second Souffle",
+        "path": "/moves/9-Revival-Blessing.webp"
+    },
+    {
+        "id": 10,
+        "name": "Fake-Tears",
+        "answer": "Croco Larme",
+        "path": "/moves/10-Fake-Tears.jpg"
+    }
+]

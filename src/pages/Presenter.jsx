@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getFilteredPokemon } from "../api";
+import NavMenu from "../components/NavMenu";
 import "../App.scss";
 
 function Presenter() {
@@ -39,7 +40,7 @@ function Presenter() {
   return (
     <>
       <h2>Vue Présentateur : Sélectionnez la Génération et le Type</h2>
-
+      <NavMenu />
         <div className="filters">
             {/* Sélection de la génération */}
             <div className="filter-group">
