@@ -34,7 +34,7 @@ export async function getRandomGeneration() {
       return null;
     }
 
-    const regionName = data.version_groups[0].name;
+    const regionName = data.version_groups[0].name || "Inconnue";
     console.log(`📊 Région trouvée: ${regionName}`);
 
     const generationData = {

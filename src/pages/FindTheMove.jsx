@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { useParams, useNavigate  } from "react-router-dom";
+import { useState, useEffect, useCallback } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import moves from "../data/moves.json";
 import soheiLogo from "/Image1.png";
 import NavMenu from "../components/NavMenu";
@@ -13,15 +13,31 @@ function FindTheMove() {
   const move = moves.find((m) => m.id === moveId);
   const [showAnswer, setShowAnswer] = useState(false);
 
+  // ✅ Fonction de navigation (toujours à jour)
+  const goToNext = useCallback(() => {
+    if (moveId < moves.length) navigate(`/find-the-move/${moveId + 1}`);
+  }, [moveId, navigate]);
+
+  const goToPrevious = useCallback(() => {
+    if (moveId > 1) navigate(`/find-the-move/${moveId - 1}`);
+  }, [moveId, navigate]);
+
+  // ✅ Réinitialisation de la réponse lorsqu'on change de question
   useEffect(() => {
     setShowAnswer(false);
-  }, [moveId]); 
+  }, [moveId]);
 
+  // ✅ Gestion du clavier pour la navigation
   useEffect(() => {
-    // Gestion de la touche "S" pour révéler la réponse
     const handleKeyPress = (event) => {
-      if (event.key.toLowerCase() === "s") {
-        setShowAnswer(true);
+      const key = event.key.toLowerCase();
+
+      if (key === "s") {
+        setShowAnswer(true); // ✅ Affiche la réponse avec "S"
+      } else if (key === "n") {
+        goToNext(); // ✅ Page suivante avec "N"
+      } else if (key === "p") {
+        goToPrevious(); // ✅ Page précédente avec "P"
       }
     };
 
@@ -29,39 +45,30 @@ function FindTheMove() {
     return () => {
       window.removeEventListener("keydown", handleKeyPress);
     };
-  }, []);
+  }, [goToNext, goToPrevious]); // ✅ Ajout des dépendances pour toujours utiliser les bonnes valeurs
 
   if (!move) {
     return <h2>Attaque non trouvée !</h2>;
   }
 
-  // Navigation entre les attaques
-  const goToNext = () => {
-    if (moveId < moves.length) navigate(`/find-the-move/${moveId + 1}`);
-  };
-
-  const goToPrevious = () => {
-    if (moveId > 1) navigate(`/find-the-move/${moveId - 1}`);
-  };
-
   return (
     <div className="move-container">
-        <NavMenu />
-        <div>
-            <img src={soheiLogo} className="logo" alt="Vite logo" />
-        </div>
-        <h1>Find The Move {move.id}</h1>
-        <h2 className="move-instructions">
-            Trouve le nom de l’attaque représentée par cette image.
-        </h2>
+      <NavMenu />
+      <div>
+        <img src={soheiLogo} className="logo" alt="Vite logo" />
+      </div>
+      <h1>Find The Move {move.id}</h1>
+      <h2 className="move-instructions">
+        Trouve le nom de l’attaque représentée par cette image.
+      </h2>
 
       {/* Image de l'attaque */}
       <div className="move-card">
         <img 
-        src={`${import.meta.env.BASE_URL}${move.path.replace(/^\/+/, "")}`} 
-        alt={`Indice pour ${move.name}`} 
-        onClick={() => setShowAnswer(true)}
-        className="move-image"
+          src={`${import.meta.env.BASE_URL}${move.path.replace(/^\/+/, "")}`} 
+          alt={`Indice pour ${move.name}`} 
+          onClick={() => setShowAnswer(true)}
+          className="move-image"
         />
       </div>
 
@@ -70,8 +77,8 @@ function FindTheMove() {
 
       {/* Navigation */}
       <div className="navigation-buttons">
-        <button onClick={goToPrevious} disabled={moveId === 1}>Précédent</button>
-        <button onClick={goToNext} disabled={moveId === moves.length}>Suivant</button>
+        <button onClick={goToPrevious} disabled={moveId === 1}>⬅ Précédent (P)</button>
+        <button onClick={goToNext} disabled={moveId === moves.length}>Suivant (N) ➡</button>
       </div>
     </div>
   );
