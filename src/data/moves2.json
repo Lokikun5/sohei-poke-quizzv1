@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "Requiem",
+        "answer": "Requiem",
+        "path": "/moves2/1-Requiem.webp"
+    },
+    {
+        "id": 2,
+        "name": "Barrier",
+        "answer": "Bouclier",
+        "path": "/moves2/2-Bouclier.webp"
+    },
+    {
+        "id": 3,
+        "name": "DD",
+        "answer": "Danse Draco / Dracacophonie",
+        "path": "/moves2/3-DD.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Blizzard",
+        "answer": "Blizzard",
+        "path": "/moves2/4-Blizzard.jpg"
+    },
+    {
+        "id": 5,
+        "name": "SacredSword",
+        "answer": "Lame Sainte / Lame Ointe",
+        "path": "/moves2/5-SacredSword.webp"
+    },
+    {
+        "id": 6,
+        "name": "Hadou",
+        "answer": "Aurasphère / Exploforce",
+        "path": "/moves2/6-hadou.webp"
+    },
+    {
+        "id": 7,
+        "name": "High Jump Kick",
+        "answer": "Pied Voltige",
+        "path": "/moves2/7-HighJumpKick.jpg"
+    },
+    {
+        "id": 8,
+        "name": "HyperVoicep",
+        "answer": "Mégaphone",
+        "path": "/moves2/8-HyperVoice.png"
+    },
+    {
+        "id": 9,
+        "name": "BodyPress",
+        "answer": "Big Splash",
+        "path": "/moves2/9-BodyPress.png"
+    },
+    {
+        "id": 10,
+        "name": "Amnésie",
+        "answer": "Amnésie",
+        "path": "/moves2/10-Amnesia.jpg"
+    }
+]

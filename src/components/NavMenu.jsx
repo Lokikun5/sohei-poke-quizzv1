@@ -37,6 +37,8 @@ function NavMenu() {
         navigate("/infinite-fusion");
       } else if (event.key === "4") {
         navigate("/find-the-move/1");
+      } else if (event.key === "5") {
+        navigate("/find-the-move2/1");
       }
     };
 
@@ -64,6 +66,7 @@ function NavMenu() {
           <Link to="/presentateur" className="nav-item" onClick={() => setIsOpen(false)}>Présentation (2)</Link>
           <Link to="/infinite-fusion" className="nav-item" onClick={() => setIsOpen(false)}>Infinite Fusion (3)</Link>
           <Link to="/find-the-move/1" className="nav-item" onClick={() => setIsOpen(false)}>Find The Move (4)</Link>
+          <Link to="/find-the-move2/1" className="nav-item" onClick={() => setIsOpen(false)}>Find The Move (5)</Link>
         </div>
       )}
     </div>
