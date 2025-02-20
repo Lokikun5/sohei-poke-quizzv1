@@ -13,6 +13,7 @@ function InfiniteFusion() {
   const [pokemon2, setPokemon2] = useState(null);
   const [showOriginals, setShowOriginals] = useState(false);
   const [showHint, setShowHint] = useState(false); // ✅ État pour afficher les indices des types
+  const [showGame, setShowGame] = useState(false); // ✅ Ajout d'un écran d'intro
 
   // ✅ Fonction pour sélectionner une nouvelle fusion aléatoire
   const fetchNewFusion = async () => {
@@ -37,12 +38,16 @@ function InfiniteFusion() {
   // ✅ Gestion des touches "S" pour la réponse, "R" pour relancer et "I" pour afficher les indices
   useEffect(() => {
     const handleKeyPress = (event) => {
-      if (event.key.toLowerCase() === "s") {
+      const key = event.key.toLowerCase();
+
+      if (key === "s") {
         setShowOriginals(true);
-      } else if (event.key.toLowerCase() === "r") {
-        fetchNewFusion(); // ✅ Relance la fusion avec "R"
-      } else if (event.key.toLowerCase() === "i") {
-        setShowHint((prev) => !prev); // ✅ Affiche/Masque les indices avec "I"
+      } else if (key === "r") {
+        fetchNewFusion();
+      } else if (key === "i") {
+        setShowHint((prev) => !prev);
+      } else if (key === "g") {
+        setShowGame(true); // ✅ Touche "G" pour afficher le jeu
       }
     };
 
@@ -52,13 +57,29 @@ function InfiniteFusion() {
     };
   }, []);
 
+  // ✅ Écran d'introduction avant d'afficher le jeu
+  if (!showGame) {
+    return (
+      <div className="intro-screen">
+        <img src={soheiLogo} className="logo" alt="Vite logo" />
+        <NavMenu />
+
+        <h1>Bienvenue sur Infinite Fusion !</h1>
+        <p>Essayez de deviner les deux Pokémon fusionnés à partir de l'image.</p>
+
+        <button className="start-button" onClick={() => setShowGame(true)}>GO</button>
+      </div>
+    );
+  }
+
+  // ✅ Affichage du jeu
   return (
     <div className="fusion-container">
       <div className="flex-col">
         <img src={soheiLogo} className="logo" alt="Vite logo" />
         <NavMenu />
       </div>
-         
+
       <div className="name-section">
         <img className="ANDimg" src={ADN} alt="Pointeau ADN" />
         <h2>Devinez les Pokémon fusionnés !</h2>
@@ -76,7 +97,7 @@ function InfiniteFusion() {
 
       {/* ✅ Bouton pour révéler l'indice des types */}
       <button className="hint-button" onClick={() => setShowHint((prev) => !prev)}>
-        {showHint ? "Masquer l'indice" : "Découvrir l'indice"}
+        {showHint ? "Masquer l'indice" : "Découvrir l'indice (I)"}
       </button>
 
       {/* ✅ Affichage des types (caché par défaut) */}
@@ -108,10 +129,10 @@ function InfiniteFusion() {
       {/* ✅ Boutons de contrôle */}
       <div className="buttons-container">
         <button className="reload-button" onClick={fetchNewFusion}>
-           Nouvelle Fusion
+           Nouvelle Fusion (R)
         </button>
         <button className="answer-button" onClick={() => setShowOriginals(true)}>
-          Révéler les Pokémon d'origine
+          Révéler les Pokémon d'origine (S)
         </button>
       </div>
 

@@ -34,7 +34,7 @@ function FullscreenButton() {
 
   return (
     <button onClick={toggleFullscreen} className="fullscreen-button">
-      {isFullscreen ? "Quitter le plein écran" : "Passer en plein écran"}
+      {isFullscreen ? "Quitter le plein écran (F) " : "Passer en plein écran (F)"}
     </button>
   );
 }

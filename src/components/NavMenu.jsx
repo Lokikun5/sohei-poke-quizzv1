@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Menu, ChevronDown } from "lucide-react";
 
 function NavMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const navigate = useNavigate();
 
   // Détection automatique du mobile
   useEffect(() => {
@@ -25,6 +26,26 @@ function NavMenu() {
     }
   };
 
+  // ✅ Ajout de la navigation avec les touches "1", "2", "3", "4"
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.key === "1") {
+        navigate("/");
+      } else if (event.key === "2") {
+        navigate("/presentateur");
+      } else if (event.key === "3") {
+        navigate("/infinite-fusion");
+      } else if (event.key === "4") {
+        navigate("/find-the-move/1");
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [navigate]);
+
   return (
     <div
       className="nav-menu"
@@ -39,10 +60,10 @@ function NavMenu() {
 
       {isOpen && (
         <div className="nav-popup">
-          <Link to="/" className="nav-item" onClick={() => setIsOpen(false)}>Home</Link>
-          <Link to="/presentateur" className="nav-item" onClick={() => setIsOpen(false)}>Présentation</Link>
-          <Link to="/infinite-fusion" className="nav-item" onClick={() => setIsOpen(false)}>Infinite Fusion</Link>
-          <Link to="/find-the-move/1" className="nav-item" onClick={() => setIsOpen(false)}>Find The Move</Link>
+          <Link to="/" className="nav-item" onClick={() => setIsOpen(false)}>Home (1)</Link>
+          <Link to="/presentateur" className="nav-item" onClick={() => setIsOpen(false)}>Présentation (2)</Link>
+          <Link to="/infinite-fusion" className="nav-item" onClick={() => setIsOpen(false)}>Infinite Fusion (3)</Link>
+          <Link to="/find-the-move/1" className="nav-item" onClick={() => setIsOpen(false)}>Find The Move (4)</Link>
         </div>
       )}
     </div>

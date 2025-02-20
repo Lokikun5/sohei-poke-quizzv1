@@ -6,12 +6,25 @@ import "./App.scss";
 import pikaquizz from "../public/pikaquizz.jpg";
 import icons from "./data/icons";
 
+const generationRegions = {
+  1: "Kanto",
+  2: "Johto",
+  3: "Hoenn",
+  4: "Sinnoh",
+  5: "Unys",
+  6: "Kalos",
+  7: "Alola",
+  8: "Galar",
+  9: "Paldea"
+};
+
 function App() {
   const [generation, setGeneration] = useState(null);
   const [pokemonType, setPokemonType] = useState(null);
   const [filteredPokemon, setFilteredPokemon] = useState([]);
   const [showAnswers, setShowAnswers] = useState(false);
   const [correctAnswers, setCorrectAnswers] = useState(0); // ✅ Compteur de bonnes réponses
+  const [showGame, setShowGame] = useState(false); // ✅ Affichage du jeu après l'écran d'accueil
 
   // ✅ Fonction pour récupérer une nouvelle question
   const fetchNewQuestion = async () => {
@@ -45,15 +58,19 @@ function App() {
     });
   };
 
-  // ✅ Gestion de la touche "S" pour afficher les réponses
+  // ✅ Gestion des touches
   useEffect(() => {
     const handleKeyPress = (event) => {
-      if (event.key.toLowerCase() === "s") {
+      const key = event.key.toLowerCase();
+
+      if (key === "s") {
         setShowAnswers((prev) => !prev);
-      } else if (event.key.toLowerCase() === "y") {
-        handleCorrectAnswer(); // ✅ Ajout d'une bonne réponse en appuyant sur "Y"
-      } else if (event.key.toLowerCase() === "r") {
-        fetchNewQuestion(); // ✅ Recharger la question avec la touche "R"
+      } else if (key === "y") {
+        handleCorrectAnswer();
+      } else if (key === "r") {
+        fetchNewQuestion();
+      } else if (key === "g") {
+        setShowGame(true); // ✅ Touche "G" pour afficher le jeu
       }
     };
 
@@ -63,11 +80,27 @@ function App() {
     };
   }, [filteredPokemon.length]);
 
+  // ✅ Écran d'introduction (avant d'afficher le jeu)
+  if (!showGame) {
+    return (
+      <div className="intro-screen">
+        <Header />
+        <FullscreenButton />
+
+        <h1>Bienvenue sur le Quizz Pokémon !</h1>
+        <p>Votre objectif est de retrouver les Pokémon correspondant au type et à la génération affichés.</p>
+
+        <button className="start-button" onClick={() => setShowGame(true)}>GO</button>
+      </div>
+    );
+  }
+
+  // ✅ Affichage du jeu
   return (
     <>
       <Header />
       <FullscreenButton />
-      
+
       <h2>
         {generation && pokemonType ? (
           <>
@@ -79,7 +112,8 @@ function App() {
                 style={{ width: 24, height: 24 }}
               />
             </span>
-            {pokemonType}" de la {generation.name} {generation.region ? ` (${generation.region})` : ""}
+            {pokemonType}" de la {generation.name}{" "}
+            {generation.id && generationRegions[generation.id] ? `(${generationRegions[generation.id]})` : "(Aucune région détectée)"}
           </>
         ) : (
           "Chargement des données..."
@@ -99,12 +133,12 @@ function App() {
         <div className="btn-section">
           {/* ✅ Bouton pour recharger la question sans quitter le plein écran */}
           <button onClick={fetchNewQuestion} className="reload-button">
-             Nouvelle Question
+             Nouvelle Question (R)
           </button>
 
           {/* ✅ Bouton pour afficher les réponses */}
           <button onClick={() => setShowAnswers(true)} className="answer-button">
-            Afficher les réponses
+            Afficher les réponses (S)
           </button>
         </div>
 

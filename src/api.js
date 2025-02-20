@@ -27,20 +27,12 @@ export async function getRandomGeneration() {
     if (!response.ok) throw new Error(`Erreur API: ${response.statusText}`);
 
     const data = await response.json();
+    console.log("✅ Réponse complète de l'API :", data);
     const frenchName = data.names.find(name => name.language.name === "fr")?.name || `Génération ${generationId}`;
-
-    if (!data.main_region || !data.main_region.name) {
-      console.error("❌ Erreur: La région est manquante dans la réponse de l'API !");
-      return null;
-    }
-
-    const regionName = data.version_groups[0].name || "Inconnue";
-    console.log(`📊 Région trouvée: ${regionName}`);
 
     const generationData = {
       id: generationId,
       name: frenchName,
-      region: regionName,
       pokemon_species: data.pokemon_species
     };
 
