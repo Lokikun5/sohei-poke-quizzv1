@@ -1,4 +1,5 @@
 "F" pour basculer ou quitter le plein écran
+"G" afficher le jeu
 "Y" ajouter une bonne réponse
 "S" afficher la bonne réponse
 "R" lancer une nouvelle question

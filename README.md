@@ -73,6 +73,49 @@ Une **vue dédiée** au présentateur permet d'afficher directement les réponse
 
 ---
 
+## 📌 **Jeux disponibles :**
+### 🟢 **1. Find The Move**
+💡 **Objectif :** Trouver le nom de l'attaque Pokémon en observant une image comme indice.
+
+#### 📖 **Comment jouer ?**
+- Une image représentant une attaque Pokémon est affichée.
+- Vous devez deviner le nom de l'attaque.
+- Cliquez sur l'image ou appuyez sur **"S"** pour afficher la réponse.
+- Naviguez entre les attaques avec les boutons **Précédent / Suivant**.
+
+#### 🎮 **Raccourcis clavier :**
+- **S** → Afficher la réponse.
+- **N** → Aller à l'attaque suivante.
+- **P** → Retourner à l'attaque précédente.
+- **4** → Revenir à la sélection du jeu.
+
+---
+
+### 🔵 **2. Infinite Fusion**
+💡 **Objectif :** Deviner quels Pokémon ont été fusionnés en observant une image.
+
+#### 📖 **Comment jouer ?**
+- Une image d'une fusion aléatoire de Pokémon est affichée.
+- Vous devez trouver les deux Pokémon d'origine.
+- Appuyez sur **"I"** ou cliquez sur "Découvrir l'indice" pour voir les types des Pokémon fusionnés.
+- Appuyez sur **"S"** ou cliquez sur "Révéler les Pokémon d'origine" pour voir la réponse.
+
+#### 🎮 **Raccourcis clavier :**
+- **S** → Afficher la réponse.
+- **R** → Générer une nouvelle fusion.
+- **I** → Afficher / Masquer les types des Pokémon d'origine.
+- **3** → Revenir à la sélection du jeu.
+
+---
+
+## 🎮 **Navigation rapide (raccourcis clavier)**
+- **1** → Accueil.
+- **2** → Présentation.
+- **3** → Infinite Fusion.
+- **4** → Find The Move.
+
+---
+
 ## 📡 Source des Données
 
 Toutes les données proviennent de **PokéAPI** :  
