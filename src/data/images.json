@@ -838,5 +838,26 @@
     "secondId": 150,
     "name": "768.150a.png",
     "path": "/pokefusion/768.150a.png"
+  },
+  {
+    "id": 201,
+    "firstId": 151,
+    "secondId": 132,
+    "name": "151.132b.png",
+    "path": "/pokefusion/151.132b.png"
+  },
+  {
+    "id": 202,
+    "firstId": 282,
+    "secondId": 132,
+    "name": "151.132b.png",
+    "path": "/pokefusion/132.282b.png"
+  },
+  {
+    "id": 203,
+    "firstId": 68,
+    "secondId": 132,
+    "name": "151.132b.png",
+    "path": "/pokefusion/132.68a.png"
   }
 ]

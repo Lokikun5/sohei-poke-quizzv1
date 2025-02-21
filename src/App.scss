@@ -593,3 +593,63 @@ h1 {
     width: 50%;
   }
  }
+
+
+ /* ====== STYLES POUR LES GRANDS ÉCRANS ====== */
+@media (min-width: 2500px) {
+  body {
+    font-size: 24px; /* Augmentation de la taille du texte */
+  }
+
+  .intro-screen {
+    max-width: 80%;
+    margin: auto;
+    text-align: center;
+  }
+
+  .intro-screen h1 {
+    font-size: 4rem;
+  }
+
+  .start-button {
+    font-size: 2rem;
+    padding: 20px 40px;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  .result {
+    padding: 4rem;
+  }
+
+  .mystery-image img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .pokemon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+
+  .pokemon-card {
+    padding: 20px;
+  }
+
+  .pokemon-card img {
+    width: 200px;
+  }
+
+  .answer-button,
+  .reload-button {
+    font-size: 2rem;
+    padding: 15px 30px;
+  }
+
+  .btn-section {
+    margin-top: 3rem;
+  }
+}
