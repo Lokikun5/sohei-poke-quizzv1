@@ -39,7 +39,7 @@ export async function getRandomGeneration() {
     // Stocke les données en cache
     localStorage.setItem(`generation-${generationId}`, JSON.stringify(generationData));
 
-    console.log(`📊 Génération récupérée: ${frenchName} (${generationId}) - Région: ${regionName}`);
+    console.log(`📊 Génération récupérée: ${frenchName} (${generationId})`);
     return generationData;
   } catch (error) {
     console.error("❌ Erreur lors de la récupération de la génération :", error);
