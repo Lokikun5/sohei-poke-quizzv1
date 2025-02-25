@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { getRandomGeneration, getRandomType, getFilteredPokemon } from "./api";
+import { getRandomGeneration, getRandomType, getFilteredPokemon, prefetchAllGenerations } from "./api";
 import Header from "./components/Header";
 import FullscreenButton from "./components/FullscreenButton";
 import "./App.scss";
 import pikaquizz from "../public/pikaquizz.jpg";
+import sonia from "../public/Sonia_Emote_3_Masters.png";
 import icons from "./data/icons";
 
 const generationRegions = {
@@ -23,11 +24,18 @@ function App() {
   const [pokemonType, setPokemonType] = useState(null);
   const [filteredPokemon, setFilteredPokemon] = useState([]);
   const [showAnswers, setShowAnswers] = useState(false);
-  const [correctAnswers, setCorrectAnswers] = useState(0); // ✅ Compteur de bonnes réponses
-  const [showGame, setShowGame] = useState(false); // ✅ Affichage du jeu après l'écran d'accueil
+  const [correctAnswers, setCorrectAnswers] = useState(0);
+  const [showGame, setShowGame] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  // ✅ Fonction pour récupérer une nouvelle question
+  // Précharger toutes les générations au lancement de l'application
+  useEffect(() => {
+    prefetchAllGenerations();
+  }, []);
+
+  // Fonction pour récupérer une nouvelle question avec indication de chargement
   const fetchNewQuestion = async () => {
+    setIsLoading(true);
     const genData = await getRandomGeneration();
     const typeData = await getRandomType();
 
@@ -37,9 +45,10 @@ function App() {
     if (genData && typeData) {
       const pokemonList = await getFilteredPokemon(genData.id, typeData);
       setFilteredPokemon(pokemonList);
-      setCorrectAnswers(0); // ✅ Réinitialiser le compteur
-      setShowAnswers(false); // ✅ Masquer les réponses
+      setCorrectAnswers(0);
+      setShowAnswers(false);
     }
+    setIsLoading(false);
   };
 
   // Charger les premières données
@@ -47,18 +56,18 @@ function App() {
     fetchNewQuestion();
   }, []);
 
-  // ✅ Fonction pour gérer les bonnes réponses
+  // Gestion des bonnes réponses
   const handleCorrectAnswer = () => {
     setCorrectAnswers((prev) => {
       const newCount = prev + 1;
       if (newCount >= filteredPokemon.length) {
-        setShowAnswers(true); // ✅ Affiche la réponse automatiquement quand toutes les bonnes réponses sont trouvées
+        setShowAnswers(true);
       }
       return newCount;
     });
   };
 
-  // ✅ Gestion des touches
+  // Gestion des touches
   useEffect(() => {
     const handleKeyPress = (event) => {
       const key = event.key.toLowerCase();
@@ -70,7 +79,7 @@ function App() {
       } else if (key === "r") {
         fetchNewQuestion();
       } else if (key === "g") {
-        setShowGame(true); // ✅ Touche "G" pour afficher le jeu
+        setShowGame(true);
       }
     };
 
@@ -80,7 +89,7 @@ function App() {
     };
   }, [filteredPokemon.length]);
 
-  // ✅ Écran d'introduction (avant d'afficher le jeu)
+  // Écran d'introduction
   if (!showGame) {
     return (
       <div className="intro-screen">
@@ -95,11 +104,20 @@ function App() {
     );
   }
 
-  // ✅ Affichage du jeu
   return (
     <>
       <Header />
       <FullscreenButton />
+
+      {/* Affichage d'un indicateur de chargement */}
+      {isLoading && (
+        <div className="loading-overlay">
+          <p>Chargement des nouvelles données...</p>
+          <div className="mystery-image">
+          <img src={sonia} alt="sonia Pokémon" />
+        </div>
+        </div>
+      )}
 
       <h2>
         {generation && pokemonType ? (
@@ -123,33 +141,27 @@ function App() {
       <section className="result">
         <h3>{filteredPokemon.length} Pokémon à trouver :</h3>
 
-        {/* Cercle noir avec point d'interrogation */}
         <div className="mystery-image">
           <img src={pikaquizz} alt="Mystery Pokémon" />
         </div>
 
-        {/* ✅ Affichage du compteur de bonnes réponses */}
         <p className="score">Bonnes réponses : {correctAnswers} / {filteredPokemon.length}</p>
         <div className="btn-section">
-          {/* ✅ Bouton pour recharger la question sans quitter le plein écran */}
-          <button onClick={fetchNewQuestion} className="reload-button">
-             Nouvelle Question (R)
+          <button onClick={fetchNewQuestion} className="reload-button" disabled={isLoading}>
+            Nouvelle Question (R)
           </button>
-
-          {/* ✅ Bouton pour afficher les réponses */}
-          <button onClick={() => setShowAnswers(true)} className="answer-button">
+          <button onClick={() => setShowAnswers(true)} className="answer-button" disabled={isLoading}>
             Afficher les réponses (S)
           </button>
         </div>
 
-        {/* Liste des Pokémon (affichée seulement si `showAnswers` est `true`) */}
         {showAnswers && (
           <div className="pokemon-grid">
             {filteredPokemon.map((pokemon, index) => (
               <div 
                 key={index} 
                 className="pokemon-card"
-                onClick={handleCorrectAnswer} // ✅ Clic = bonne réponse
+                onClick={handleCorrectAnswer}
               >
                 <img src={pokemon.sprite} alt={pokemon.name} />
                 <p>{pokemon.name}</p>

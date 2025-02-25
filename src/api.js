@@ -8,6 +8,32 @@ function getRandomNumber(min, max) {
 }
 
 /**
+ * Précharge toutes les générations (1 à 9) dans le cache local.
+ */
+export async function prefetchAllGenerations() {
+  for (let generationId = 1; generationId <= 9; generationId++) {
+    const generationKey = `generation-${generationId}`;
+    if (!localStorage.getItem(generationKey)) {
+      try {
+        const response = await fetch(`${API_BASE_URL}/generation/${generationId}`);
+        if (!response.ok) throw new Error(`Erreur API: ${response.statusText}`);
+        const data = await response.json();
+        const frenchName = data.names.find(name => name.language.name === "fr")?.name || `Génération ${generationId}`;
+        const generationData = {
+          id: generationId,
+          name: frenchName,
+          pokemon_species: data.pokemon_species
+        };
+        localStorage.setItem(generationKey, JSON.stringify(generationData));
+        console.log(`Génération ${generationId} préchargée`);
+      } catch (error) {
+        console.error(`❌ Erreur lors de la précharge de la génération ${generationId} :`, error);
+      }
+    }
+  }
+}
+
+/**
  * Récupère une génération Pokémon aléatoire et son nom en français.
  * @returns {Promise<{ id: number, name: string }>}
  */
@@ -47,7 +73,6 @@ export async function getRandomGeneration() {
   }
 }
 
-
 /**
  * Récupère un type Pokémon aléatoire parmi les 18 premiers types.
  * @returns {Promise<string>} - Nom du type en anglais.
@@ -81,7 +106,6 @@ export async function getRandomType() {
   return randomType.name;
 }
 
-
 /**
  * Récupère les Pokémon d'une génération et filtre ceux qui correspondent au type donné.
  * @param {number} generationId - ID de la génération
@@ -91,7 +115,7 @@ export async function getRandomType() {
 export async function getFilteredPokemon(generationId, type) {
   console.log(`🔍 Recherche des Pokémon de type "${type}" dans la génération ${generationId}`);
 
-  // Vérifie si cette combinaison est déjà en cache
+  // Vérifier si le résultat est déjà en cache
   const cacheKey = `pokemon-${generationId}-${type}`;
   const cachedPokemon = localStorage.getItem(cacheKey);
   if (cachedPokemon) {
@@ -99,18 +123,34 @@ export async function getFilteredPokemon(generationId, type) {
     return JSON.parse(cachedPokemon);
   }
 
-  try {
-    const response = await fetch(`${API_BASE_URL}/generation/${generationId}`);
-    if (!response.ok) throw new Error("Erreur lors de la récupération de la génération");
-    const generation = await response.json();
+  // Récupérer la génération depuis le cache
+  const generationKey = `generation-${generationId}`;
+  let generationData = localStorage.getItem(generationKey);
+  if (generationData) {
+    generationData = JSON.parse(generationData);
+  } else {
+    // Fallback : si la génération n'est pas en cache, la récupérer depuis l'API
+    try {
+      const response = await fetch(`${API_BASE_URL}/generation/${generationId}`);
+      if (!response.ok) throw new Error("Erreur lors de la récupération de la génération");
+      const data = await response.json();
+      const frenchName = data.names.find(name => name.language.name === "fr")?.name || `Génération ${generationId}`;
+      generationData = {
+        id: generationId,
+        name: frenchName,
+        pokemon_species: data.pokemon_species
+      };
+      localStorage.setItem(generationKey, JSON.stringify(generationData));
+    } catch (error) {
+      console.error("❌ Erreur lors de la récupération de la génération :", error);
+      return [];
+    }
+  }
 
-    console.log(`📜 ${generation.pokemon_species.length} Pokémon dans la génération ${generationId}`);
-
-    const pokemonList = [];
-
-    for (const species of generation.pokemon_species) {
-      console.log(`➡ Vérification du Pokémon: ${species.name}`);
-
+  const pokemonList = [];
+  for (const species of generationData.pokemon_species) {
+    console.log(`➡ Vérification du Pokémon: ${species.name}`);
+    try {
       const speciesResponse = await fetch(species.url);
       if (!speciesResponse.ok) continue;
       const speciesDetails = await speciesResponse.json();
@@ -125,20 +165,18 @@ export async function getFilteredPokemon(generationId, type) {
       const hasType = pokemonDetails.types.some(t => t.type.name === type);
       if (!hasType) continue;
 
-      const frenchName = speciesDetails.names.find(n => n.language.name === "fr")?.name || species.name;
+      const frenchName =
+        speciesDetails.names.find(n => n.language.name === "fr")?.name || species.name;
       const sprite = pokemonDetails.sprites.other["official-artwork"].front_default;
-
       console.log(`✅ ${species.name} validé: ${frenchName} (${type})`);
       pokemonList.push({ name: frenchName, sprite });
+    } catch (error) {
+      console.error("❌ Erreur lors du traitement de ", species.name, error);
     }
-
-    // Stocke le résultat en cache
-    localStorage.setItem(cacheKey, JSON.stringify(pokemonList));
-
-    console.log(`✅ ${pokemonList.length} Pokémon stockés en cache pour la génération ${generationId} et le type ${type}`);
-    return pokemonList;
-  } catch (error) {
-    console.error("❌ Erreur lors du filtrage des Pokémon :", error);
-    return [];
   }
+
+  // Stocker le résultat filtré en cache
+  localStorage.setItem(cacheKey, JSON.stringify(pokemonList));
+  console.log(`✅ ${pokemonList.length} Pokémon stockés en cache pour la génération ${generationId} et le type ${type}`);
+  return pokemonList;
 }
