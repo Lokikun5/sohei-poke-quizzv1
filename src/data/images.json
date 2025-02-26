@@ -857,7 +857,364 @@
     "id": 203,
     "firstId": 68,
     "secondId": 132,
-    "name": "151.132b.png",
+    "name": "68.132a.png",
     "path": "/pokefusion/132.68a.png"
+  },
+  {
+    "id": 204,
+    "firstId": 4,
+    "secondId": 635,
+    "name": "4.635.png",
+    "path": "/pokefusion/4.635.png"
+  },
+  {
+    "id": 205,
+    "firstId": 6,
+    "secondId": 51,
+    "name": "6.51.png",
+    "path": "/pokefusion/6.51.png"
+  },
+  {
+    "id": 206,
+    "firstId": 9,
+    "secondId": 466,
+    "name": "9.466.png",
+    "path": "/pokefusion/9.466.png"
+  },
+  {
+    "id": 207,
+    "firstId": 9,
+    "secondId": 658,
+    "name": "9.658.png",
+    "path": "/pokefusion/9.658.png"
+  },
+  {
+    "id": 208,
+    "firstId": 9,
+    "secondId": 800,
+    "name": "9.800.png",
+    "path": "/pokefusion/9.800.png"
+  },
+  {
+    "id": 209,
+    "firstId": 23,
+    "secondId": 143,
+    "name": "23.143a.png",
+    "path": "/pokefusion/23.143a.png"
+  },
+  {
+    "id": 210,
+    "firstId": 27,
+    "secondId": 487,
+    "name": "27.487a.png",
+    "path": "/pokefusion/27.487a.png"
+  },
+  {
+    "id": 211,
+    "firstId": 35,
+    "secondId": 282,
+    "name": "35.282b.png",
+    "path": "/pokefusion/35.282b.png"
+  },
+  {
+    "id": 212,
+    "firstId": 49,
+    "secondId": 475,
+    "name": "49.475a.png",
+    "path": "/pokefusion/49.475a.png"
+  },
+  {
+    "id": 213,
+    "firstId": 52,
+    "secondId": 235,
+    "name": "52.235a.png",
+    "path": "/pokefusion/52.235a.png"
+  },
+  {
+    "id": 214,
+    "firstId": 52,
+    "secondId": 426,
+    "name": "52.426.png",
+    "path": "/pokefusion/52.426.png"
+  },
+  {
+    "id": 215,
+    "firstId": 52,
+    "secondId": 475,
+    "name": "52.475a.png",
+    "path": "/pokefusion/52.475a.png"
+  },
+  {
+    "id": 216,
+    "firstId": 52,
+    "secondId": 778,
+    "name": "52.778a.png",
+    "path": "/pokefusion/52.778a.png"
+  },
+  {
+    "id": 217,
+    "firstId": 53,
+    "secondId": 128,
+    "name": "53.128a.png",
+    "path": "/pokefusion/53.128a.png"
+  },
+  {
+    "id": 218,
+    "firstId": 53,
+    "secondId": 243,
+    "name": "53.243b.png",
+    "path": "/pokefusion/53.243b.png"
+  },
+  {
+    "id": 219,
+    "firstId": 53,
+    "secondId": 260,
+    "name": "53.260b.png",
+    "path": "/pokefusion/53.260b.png"
+  },
+  {
+    "id": 220,
+    "firstId": 55,
+    "secondId": 400,
+    "name": "55.400a.png",
+    "path": "/pokefusion/55.400a.png"
+  },
+  {
+    "id": 221,
+    "firstId": 89,
+    "secondId": 67,
+    "name": "89.67a.png",
+    "path": "/pokefusion/89.67a.png"
+  },
+  {
+    "id": 222,
+    "firstId": 91,
+    "secondId": 282,
+    "name": "91.282a.png",
+    "path": "/pokefusion/91.282a.png"
+  },
+  {
+    "id": 223,
+    "firstId": 94,
+    "secondId": 26,
+    "name": "94.26.png",
+    "path": "/pokefusion/94.26.png"
+  },
+  {
+    "id": 224,
+    "firstId": 94,
+    "secondId": 623,
+    "name": "94.623.png",
+    "path": "/pokefusion/94.623.png"
+  },
+  {
+    "id": 225,
+    "firstId": 94,
+    "secondId": 635,
+    "name": "94.635.png",
+    "path": "/pokefusion/94.635.png"
+  },
+  {
+    "id": 226,
+    "firstId": 151,
+    "secondId": 53,
+    "name": "151.53b.png",
+    "path": "/pokefusion/151.53b.png"
+  },
+  {
+    "id": 227,
+    "firstId": 151,
+    "secondId": 379,
+    "name": "151.379a.png",
+    "path": "/pokefusion/151.379a.png"
+  },
+  {
+    "id": 228,
+    "firstId": 157,
+    "secondId": 475,
+    "name": "157.475c.png",
+    "path": "/pokefusion/157.475c.png"
+  },
+  {
+    "id": 229,
+    "firstId": 166,
+    "secondId": 428,
+    "name": "166.428c.png",
+    "path": "/pokefusion/166.428c.png"
+  },
+  {
+    "id": 230,
+    "firstId": 178,
+    "secondId": 644,
+    "name": "178.643a.png",
+    "path": "/pokefusion/178.643a.png"
+  },
+  {
+    "id": 231,
+    "firstId": 184,
+    "secondId": 570,
+    "name": "184.570.png",
+    "path": "/pokefusion/184.570.png"
+  },
+  {
+    "id": 232,
+    "firstId": 186,
+    "secondId": 222,
+    "name": "186.222a.png",
+    "path": "/pokefusion/186.222a.png"
+  },
+  {
+    "id": 233,
+    "firstId": 282,
+    "secondId": 24,
+    "name": "282.24b.png",
+    "path": "/pokefusion/282.24b.png"
+  },
+  {
+    "id": 234,
+    "firstId": 282,
+    "secondId": 649,
+    "name": "282.649.png",
+    "path": "/pokefusion/282.649.png"
+  },
+  {
+    "id": 235,
+    "firstId": 315,
+    "secondId": 3,
+    "name": "315.3.png",
+    "path": "/pokefusion/315.3.png"
+  },
+  {
+    "id": 236,
+    "firstId": 427,
+    "secondId": 386,
+    "name": "427.386.png",
+    "path": "/pokefusion/427.386.png"
+  },
+  {
+    "id": 236,
+    "firstId": 442,
+    "secondId": 744,
+    "name": "442.744.png",
+    "path": "/pokefusion/442.744.png"
+  },
+  {
+    "id": 237,
+    "firstId": 443,
+    "secondId": 175,
+    "name": "443.175a.png",
+    "path": "/pokefusion/443.175a.png"
+  },
+  {
+    "id": 238,
+    "firstId": 468,
+    "secondId": 62,
+    "name": "468.62a.png",
+    "path": "/pokefusion/468.62a.png"
+  },
+  {
+    "id": 239,
+    "firstId": 488,
+    "secondId": 26,
+    "name": "488.26.png",
+    "path": "/pokefusion/488.26.png"
+  },
+  {
+    "id": 240,
+    "firstId": 560,
+    "secondId": 282,
+    "name": "560.282.png",
+    "path": "/pokefusion/560.282.png"
+  },
+  {
+    "id": 241,
+    "firstId": 570,
+    "secondId": 699,
+    "name": "570.699.png",
+    "path": "/pokefusion/570.699.png"
+  },
+  {
+    "id": 242,
+    "firstId": 643,
+    "secondId": 248,
+    "name": "643.248.png",
+    "path": "/pokefusion/643.248.png"
+  },
+  {
+    "id": 243,
+    "firstId": 648,
+    "secondId": 9,
+    "name": "648.9b.png",
+    "path": "/pokefusion/648.9b.png"
+  },
+  {
+    "id": 244,
+    "firstId": 648,
+    "secondId": 9,
+    "name": "648.9b.png",
+    "path": "/pokefusion/648.9b.png"
+  },
+  {
+    "id": 245,
+    "firstId": 648,
+    "secondId": 203,
+    "name": "648.203a.png",
+    "path": "/pokefusion/648.203a.png"
+  },
+  {
+    "id": 246,
+    "firstId": 701,
+    "secondId": 26,
+    "name": "701.26a.png",
+    "path": "/pokefusion/701.26a.png"
+  },
+  {
+    "id": 247,
+    "firstId": 701,
+    "secondId": 461,
+    "name": "701.461.png",
+    "path": "/pokefusion/701.461.png"
+  },
+  {
+    "id": 248,
+    "firstId": 707,
+    "secondId": 407,
+    "name": "707.407a.png",
+    "path": "/pokefusion/707.407a.png"
+  },
+  {
+    "id": 249,
+    "firstId": 710,
+    "secondId": 407,
+    "name": "710.407a.png",
+    "path": "/pokefusion/710.407a.png"
+  },
+  {
+    "id": 250,
+    "firstId": 710,
+    "secondId": 407,
+    "name": "710.465.png",
+    "path": "/pokefusion/710.465.png"
+  },
+  {
+    "id": 251,
+    "firstId": 745,
+    "secondId": 28,
+    "name": "745.28.png",
+    "path": "/pokefusion/745.28.png"
+  },
+  {
+    "id": 252,
+    "firstId": 745,
+    "secondId": 289,
+    "name": "745.289b.png",
+    "path": "/pokefusion/745.289b.png"
+  },
+  {
+    "id": 253,
+    "firstId": 778,
+    "secondId": 463,
+    "name": "778.463.png",
+    "path": "/pokefusion/778.463.png"
   }
 ]
